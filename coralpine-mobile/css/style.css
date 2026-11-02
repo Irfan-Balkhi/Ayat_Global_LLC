@@ -196,7 +196,10 @@ input[type=range]{width:100%;accent-color:var(--b);height:6px}
 .qty button{width:28px;height:28px;border-radius:50%;border:1px solid var(--line);background:var(--card);color:var(--text)}
 .d-foot{padding:20px;border-top:1px solid var(--line)}
 .d-total{display:flex;justify-content:space-between;font-size:20px;margin-bottom:14px}
-.d-foot .btn{display:block;text-align:center}
+.d-foot .btn{display:block;text-align:center;width:100%}
+.d-loc{margin-bottom:14px}.d-loc span{display:block;font-size:14px;color:var(--muted);margin-bottom:8px}
+.d-loc div{display:flex;gap:8px}.d-loc .chip{flex:1}
+.btn-off,.btn-off:hover{opacity:.5;transform:none;box-shadow:none;cursor:not-allowed}
 #toast{position:fixed;bottom:30px;left:50%;transform:translate(-50%,100px);background:var(--btn);color:var(--btn-text);font-weight:700;padding:12px 26px;border-radius:30px;transition:.4s;z-index:120}
 #toast.show{transform:translate(-50%,0)}
 

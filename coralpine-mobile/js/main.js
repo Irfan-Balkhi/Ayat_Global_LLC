@@ -40,6 +40,9 @@ addEventListener("scroll", () =>
 /* ---------- Cart ---------- */
 const Cart = {
   items: JSON.parse(localStorage.getItem("pm_cart") || "[]"),
+  location: SHOP.locations.includes(localStorage.getItem("pm_location"))
+    ? localStorage.getItem("pm_location")
+    : "",
   save() {
     localStorage.setItem("pm_cart", JSON.stringify(this.items));
     this.render();
@@ -55,6 +58,11 @@ const Cart = {
     it.qty += d;
     if (it.qty < 1) this.items = this.items.filter((i) => i.id != id);
     this.save();
+  },
+  setLocation(loc) {
+    this.location = loc;
+    localStorage.setItem("pm_location", loc);
+    this.render();
   },
   total() {
     return this.items.reduce(
@@ -81,8 +89,12 @@ const Cart = {
             return `• ${p.name} x${i.qty}`;
           })
           .join("\n") +
-        `\nTotal: ${SHOP.currency}${this.total()}`,
+        `\nTotal: ${SHOP.currency}${this.total()}` +
+        `\n\n📍 RECEIVE IN: ${this.location.toUpperCase()}`,
     );
+    const locs = SHOP.locations
+      .map((l) => `<button class="chip ${this.location === l ? "active" : ""}" data-loc="${l}">${l}</button>`)
+      .join("");
     $("#cart-root").innerHTML =
       `<div class="overlay" id="overlay"></div><aside class="drawer" id="drawer">
       <div class="d-head"><h3>Your cart</h3><button class="icon-btn" id="cart-close">✕</button></div>
@@ -90,7 +102,12 @@ const Cart = {
       ${
         this.items.length
           ? `<div class="d-foot"><div class="d-total"><span>Total</span><b>${SHOP.currency}${this.total()}</b></div>
-      <a class="btn" target="_blank" rel="noopener" href="https://wa.me/${SHOP.whatsapp}?text=${msg}">Order on WhatsApp</a></div>`
+      <div class="d-loc"><span>Where will you receive it?</span><div>${locs}</div></div>
+      ${
+        this.location
+          ? `<a class="btn" target="_blank" rel="noopener" href="https://wa.me/${SHOP.whatsapp}?text=${msg}">Order on WhatsApp</a>`
+          : `<button class="btn btn-off" id="need-loc">Order on WhatsApp</button>`
+      }</div>`
           : ""
       }</aside>`;
     if (this.open) this.show(true);
@@ -107,6 +124,8 @@ document.addEventListener("click", (e) => {
   if (t.closest("#cart-close") || t.id === "overlay") Cart.show(false);
   if (t.dataset.add) Cart.add(t.dataset.add);
   if (t.dataset.q) Cart.change(t.dataset.q, +t.dataset.d);
+  if (t.dataset.loc) Cart.setLocation(t.dataset.loc);
+  if (t.closest("#need-loc")) toast("Please choose Dubai or USA first");
 });
 function toast(m) {
   const t = $("#toast");

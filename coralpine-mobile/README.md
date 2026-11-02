@@ -51,7 +51,7 @@ coralpine-mobile/
 | Logo                              | Replace `images/logo.svg` and `images/favicon.svg`             |
 
 ## Ordering
-Visitors add to cart (saved in their browser) and tap **Order on WhatsApp**; a message with items and total opens for the number in `config.js`. No online payment (static site).
+Visitors add to cart (saved in their browser), choose where they will receive the order (**Dubai, UAE** or **USA** — set in `locations` in `config.js`), and tap **Order on WhatsApp**; a message with items, total and the receive location opens for the number in `config.js`. No online payment (static site).
 
 ## Notes
 - Brands (Aero, Lumo, Terra, Coral), prices and reviews are **sample data** – replace with your own.
