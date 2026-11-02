@@ -27,6 +27,8 @@ coralpine-mobile/
 │   └── contact.js     Contact only: shop details + form (opens visitor's email app)
 └── images/
     ├── phones/        Official Apple iPhone images (one per model, all colours), sized for product cards
+    ├── samsung/       Official Samsung product images (samsung.com US store), sized for product cards
+    ├── products/      Temporary drawings (SVG) for items not yet swapped to real products – see "Real product swap" below
     ├── logo.svg       Logo (header + footer)  → replace with your real logo (same name)
     └── favicon.svg    Browser tab icon
 ```
@@ -54,3 +56,12 @@ Visitors add to cart (saved in their browser) and tap **Order on WhatsApp**; a m
 ## Notes
 - Brands (Aero, Lumo, Terra, Coral), prices and reviews are **sample data** – replace with your own.
 - Contact form uses `mailto:`. For a real form backend later, use a service like Formspree.
+
+## Real product swap (done one slice at a time)
+The original demo items (Aero, Lumo, Terra, Coral) were made-up brands, so they had no real photos. They are being replaced with real products and official images.
+
+| # | Slice | Status |
+|---|-------|--------|
+| 1 | Phones → Galaxy S26 Ultra, S26+, S26, Z Fold8, S26 FE (images + prices from samsung.com/us) | Done 2026-11-02 |
+| 2 | Tablets + watch → replace Aero Pad 11, Lumo Tab Pro, Coral Watch 3 | Todo |
+| 3 | Accessories → replace Coral Buds Air, Coral 65W Charger, Pine Armor Case | Todo |
