@@ -110,8 +110,12 @@ section{padding:90px 0;position:relative}
 .card{position:relative;background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:20px;transition:.3s}
 .card:hover{transform:translateY(-8px);border-color:var(--b);box-shadow:var(--shadow)}
 .card-art{background:var(--bg2);border-radius:16px;padding:14px;margin-bottom:14px}
-.card-art svg{width:100%;height:170px;transition:transform .4s}
+.card-art svg,.card-art img{display:block;width:100%;height:170px;object-fit:contain;transition:transform .4s}
 .card:hover .card-art svg{transform:scale(1.1) rotate(4deg)}
+.card:hover .card-art img{transform:scale(1.06)}
+/* .jpg photos have a white background: blend it into the tile (light) or use a white tile (dark) */
+[data-theme="light"] img[src$=".jpg"]{mix-blend-mode:multiply}
+[data-theme="dark"] .card-art:has(img[src$=".jpg"]),[data-theme="dark"] .c-art:has(img[src$=".jpg"]){background:#fff}
 .card-brand{color:var(--b);font-size:12px;letter-spacing:1.5px;text-transform:uppercase;font-weight:700}
 .card h3{font-size:18px}.card-specs{color:var(--muted);font-size:13px;min-height:40px}
 .card-foot{display:flex;justify-content:space-between;align-items:center;margin-top:10px}
@@ -186,6 +190,7 @@ input[type=range]{width:100%;accent-color:var(--b);height:6px}
 .d-body{flex:1;overflow:auto;padding:20px}
 .c-row{display:flex;gap:14px;margin-bottom:18px}
 .c-art{width:70px;height:70px;background:var(--bg2);border-radius:14px;padding:6px;flex:none}
+.c-art img{display:block;width:100%;height:100%;object-fit:contain}
 .c-row small{display:block;color:var(--muted)}
 .qty{display:flex;align-items:center;gap:10px;margin-top:4px}
 .qty button{width:28px;height:28px;border-radius:50%;border:1px solid var(--line);background:var(--card);color:var(--text)}

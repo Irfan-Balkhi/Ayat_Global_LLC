@@ -26,6 +26,7 @@ coralpine-mobile/
 │   ├── shop.js        Shop only: filter, search, sort
 │   └── contact.js     Contact only: shop details + form (opens visitor's email app)
 └── images/
+    ├── phones/        Official Apple iPhone images (one per model, all colours), sized for product cards
     ├── logo.svg       Logo (header + footer)  → replace with your real logo (same name)
     └── favicon.svg    Browser tab icon
 ```
@@ -40,7 +41,7 @@ coralpine-mobile/
 |-----------------------------------|----------------------------------------------------------------|
 | Shop name, phone, WhatsApp number | `js/config.js`                                                 |
 | Add / edit products               | `js/products.js` (copy one line in `PRODUCTS`, use a new `id`) |
-| Real product photos               | `products.js` → in `productCard()` replace `deviceArt(p)` with `<img src="images/your.jpg" alt="">` |
+| Real product photos               | `products.js` → add `img: "images/phones/iphone-17.png"` to a product (official iPhone images for X → 18 Pro Max / Duo are in `images/phones/`) |
 | Colours                           | `css/style.css` → section 1                                    |
 | Menu links / footer               | `js/main.js` → "Layout" block                                  |
 | Home page text, FAQ, reviews      | `index.html`                                                   |
