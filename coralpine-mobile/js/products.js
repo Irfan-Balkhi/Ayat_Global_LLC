@@ -1,5 +1,6 @@
 // EDIT / ADD PRODUCTS HERE. cat: phone | tablet | watch | accessory
 // img (optional): photo from images/, e.g. "images/phones/iphone-17.png" – without it a drawing in `color` is shown
+// Product page text (description + details table) lives in product-details.js, by product id.
 const PRODUCTS = [
   {
     id: 1,
@@ -7,50 +8,50 @@ const PRODUCTS = [
     brand: "Apple",
     cat: "phone",
     price: 1299,
-    img: "images/phones/iphone-18-pro-max.png",
+    img: "images/phones/iphone-18-pro-max.png", year: 2026, colors: ["Black","Silver","Glacier","Burgundy"],
     color: ["#F8B3AC", "#3D5B59"],
     specs: '6.9" OLED · 256GB · 5G',
     badge: "New",
   },
   // iPhone line-up. Prices = US online market, Nov 2026: Apple's own price for models
   // Apple still sells ("New"), average used-market value for discontinued ones ("Used").
-  { id: 13, name: "iPhone Duo", brand: "Apple", cat: "phone", price: 1999, img: "images/phones/iphone-duo.png", specs: '7.6" foldable OLED · 5G · New' },
-  { id: 14, name: "iPhone 18 Pro", brand: "Apple", cat: "phone", price: 1199, img: "images/phones/iphone-18-pro.png", specs: '6.3" OLED · 256GB · 5G · New' },
-  { id: 15, name: "iPhone Air", brand: "Apple", cat: "phone", price: 1099, img: "images/phones/iphone-air.png", specs: '6.5" OLED · 256GB · 5G · New' },
-  { id: 16, name: "iPhone 17", brand: "Apple", cat: "phone", price: 899, img: "images/phones/iphone-17.png", specs: '6.3" OLED · 256GB · 5G · New' },
-  { id: 17, name: "iPhone 17e", brand: "Apple", cat: "phone", price: 699, img: "images/phones/iphone-17e.png", specs: '6.1" OLED · 256GB · 5G · New' },
-  { id: 18, name: "iPhone 16", brand: "Apple", cat: "phone", price: 799, img: "images/phones/iphone-16.png", specs: '6.1" OLED · 128GB · 5G · New' },
-  { id: 19, name: "iPhone 17 Pro Max", brand: "Apple", cat: "phone", price: 1036, img: "images/phones/iphone-17-pro-max.png", specs: '6.9" OLED · 256GB · 5G · Used' },
-  { id: 20, name: "iPhone 17 Pro", brand: "Apple", cat: "phone", price: 928, img: "images/phones/iphone-17-pro.png", specs: '6.3" OLED · 256GB · 5G · Used' },
-  { id: 21, name: "iPhone 16 Pro Max", brand: "Apple", cat: "phone", price: 715, img: "images/phones/iphone-16-pro-max.png", specs: '6.9" OLED · 256GB · 5G · Used' },
-  { id: 22, name: "iPhone 16 Pro", brand: "Apple", cat: "phone", price: 626, img: "images/phones/iphone-16-pro.png", specs: '6.3" OLED · 128GB · 5G · Used' },
-  { id: 23, name: "iPhone 16 Plus", brand: "Apple", cat: "phone", price: 523, img: "images/phones/iphone-16-plus.png", specs: '6.7" OLED · 128GB · 5G · Used' },
-  { id: 24, name: "iPhone 16e", brand: "Apple", cat: "phone", price: 420, img: "images/phones/iphone-16e.png", specs: '6.1" OLED · 128GB · 5G · Used' },
-  { id: 25, name: "iPhone 15 Pro Max", brand: "Apple", cat: "phone", price: 558, img: "images/phones/iphone-15-pro-max.png", specs: '6.7" OLED · 256GB · 5G · Used' },
-  { id: 26, name: "iPhone 15 Pro", brand: "Apple", cat: "phone", price: 480, img: "images/phones/iphone-15-pro.png", specs: '6.1" OLED · 128GB · 5G · Used' },
-  { id: 27, name: "iPhone 15 Plus", brand: "Apple", cat: "phone", price: 385, img: "images/phones/iphone-15-plus.png", specs: '6.7" OLED · 128GB · 5G · Used' },
-  { id: 28, name: "iPhone 15", brand: "Apple", cat: "phone", price: 350, img: "images/phones/iphone-15.png", specs: '6.1" OLED · 128GB · 5G · Used' },
-  { id: 29, name: "iPhone 14 Pro Max", brand: "Apple", cat: "phone", price: 430, img: "images/phones/iphone-14-pro-max.png", specs: '6.7" OLED · 128GB · 5G · Used' },
-  { id: 30, name: "iPhone 14 Pro", brand: "Apple", cat: "phone", price: 368, img: "images/phones/iphone-14-pro.png", specs: '6.1" OLED · 128GB · 5G · Used' },
-  { id: 31, name: "iPhone 14 Plus", brand: "Apple", cat: "phone", price: 287, img: "images/phones/iphone-14-plus.png", specs: '6.7" OLED · 128GB · 5G · Used' },
-  { id: 32, name: "iPhone 14", brand: "Apple", cat: "phone", price: 252, img: "images/phones/iphone-14.png", specs: '6.1" OLED · 128GB · 5G · Used' },
-  { id: 33, name: "iPhone SE (3rd generation)", brand: "Apple", cat: "phone", price: 119, img: "images/phones/iphone-se-3rd-gen.png", specs: '4.7" LCD · 64GB · 5G · Used' },
-  { id: 34, name: "iPhone 13 Pro Max", brand: "Apple", cat: "phone", price: 365, img: "images/phones/iphone-13-pro-max.png", specs: '6.7" OLED · 128GB · 5G · Used' },
-  { id: 35, name: "iPhone 13 Pro", brand: "Apple", cat: "phone", price: 310, img: "images/phones/iphone-13-pro.png", specs: '6.1" OLED · 128GB · 5G · Used' },
-  { id: 36, name: "iPhone 13", brand: "Apple", cat: "phone", price: 218, img: "images/phones/iphone-13.png", specs: '6.1" OLED · 128GB · 5G · Used' },
-  { id: 37, name: "iPhone 13 mini", brand: "Apple", cat: "phone", price: 220, img: "images/phones/iphone-13-mini.png", specs: '5.4" OLED · 128GB · 5G · Used' },
-  { id: 38, name: "iPhone 12 Pro Max", brand: "Apple", cat: "phone", price: 277, img: "images/phones/iphone-12-pro-max.jpg", specs: '6.7" OLED · 128GB · 5G · Used' },
-  { id: 39, name: "iPhone 12 Pro", brand: "Apple", cat: "phone", price: 211, img: "images/phones/iphone-12-pro.jpg", specs: '6.1" OLED · 128GB · 5G · Used' },
-  { id: 40, name: "iPhone 12", brand: "Apple", cat: "phone", price: 149, img: "images/phones/iphone-12.png", specs: '6.1" OLED · 64GB · 5G · Used' },
-  { id: 41, name: "iPhone 12 mini", brand: "Apple", cat: "phone", price: 134, img: "images/phones/iphone-12-mini.png", specs: '5.4" OLED · 64GB · 5G · Used' },
-  { id: 42, name: "iPhone SE (2nd generation)", brand: "Apple", cat: "phone", price: 84, img: "images/phones/iphone-se-2nd-gen.jpg", specs: '4.7" LCD · 64GB · 4G · Used' },
-  { id: 43, name: "iPhone 11 Pro Max", brand: "Apple", cat: "phone", price: 202, img: "images/phones/iphone-11-pro-max.jpg", specs: '6.5" OLED · 64GB · 4G · Used' },
-  { id: 44, name: "iPhone 11 Pro", brand: "Apple", cat: "phone", price: 163, img: "images/phones/iphone-11-pro.jpg", specs: '5.8" OLED · 64GB · 4G · Used' },
-  { id: 45, name: "iPhone 11", brand: "Apple", cat: "phone", price: 126, img: "images/phones/iphone-11.jpg", specs: '6.1" LCD · 64GB · 4G · Used' },
-  { id: 46, name: "iPhone XS Max", brand: "Apple", cat: "phone", price: 131, img: "images/phones/iphone-xs-max.jpg", specs: '6.5" OLED · 64GB · 4G · Used' },
-  { id: 47, name: "iPhone XS", brand: "Apple", cat: "phone", price: 103, img: "images/phones/iphone-xs.jpg", specs: '5.8" OLED · 64GB · 4G · Used' },
-  { id: 48, name: "iPhone XR", brand: "Apple", cat: "phone", price: 104, img: "images/phones/iphone-xr.jpg", specs: '6.1" LCD · 64GB · 4G · Used' },
-  { id: 49, name: "iPhone X", brand: "Apple", cat: "phone", price: 98, img: "images/phones/iphone-x.jpg", specs: '5.8" OLED · 64GB · 4G · Used' },
+  { id: 13, name: "iPhone Duo", brand: "Apple", cat: "phone", price: 1999, img: "images/phones/iphone-duo.png", year: 2026, colors: ["Night Sky","Star White"], specs: '7.6" foldable OLED · 5G · New' },
+  { id: 14, name: "iPhone 18 Pro", brand: "Apple", cat: "phone", price: 1199, img: "images/phones/iphone-18-pro.png", year: 2026, colors: ["Black","Silver","Glacier","Burgundy"], specs: '6.3" OLED · 256GB · 5G · New' },
+  { id: 15, name: "iPhone Air", brand: "Apple", cat: "phone", price: 1099, img: "images/phones/iphone-air.png", year: 2025, colors: ["Space Black","Cloud White","Light Gold","Sky Blue"], specs: '6.5" OLED · 256GB · 5G · New' },
+  { id: 16, name: "iPhone 17", brand: "Apple", cat: "phone", price: 899, img: "images/phones/iphone-17.png", year: 2025, colors: ["Black","White","Mist Blue","Sage","Lavender"], specs: '6.3" OLED · 256GB · 5G · New' },
+  { id: 17, name: "iPhone 17e", brand: "Apple", cat: "phone", price: 699, img: "images/phones/iphone-17e.png", year: 2026, colors: ["Black","White","Soft Pink"], specs: '6.1" OLED · 256GB · 5G · New' },
+  { id: 18, name: "iPhone 16", brand: "Apple", cat: "phone", price: 799, img: "images/phones/iphone-16.png", year: 2024, colors: ["Black","White","Pink","Teal","Ultramarine"], specs: '6.1" OLED · 128GB · 5G · New' },
+  { id: 19, name: "iPhone 17 Pro Max", brand: "Apple", cat: "phone", price: 1036, img: "images/phones/iphone-17-pro-max.png", year: 2025, colors: ["Silver","Cosmic Orange","Deep Blue"], specs: '6.9" OLED · 256GB · 5G · Used' },
+  { id: 20, name: "iPhone 17 Pro", brand: "Apple", cat: "phone", price: 928, img: "images/phones/iphone-17-pro.png", year: 2025, colors: ["Silver","Cosmic Orange","Deep Blue"], specs: '6.3" OLED · 256GB · 5G · Used' },
+  { id: 21, name: "iPhone 16 Pro Max", brand: "Apple", cat: "phone", price: 715, img: "images/phones/iphone-16-pro-max.png", year: 2024, colors: ["Black Titanium","White Titanium","Natural Titanium","Desert Titanium"], specs: '6.9" OLED · 256GB · 5G · Used' },
+  { id: 22, name: "iPhone 16 Pro", brand: "Apple", cat: "phone", price: 626, img: "images/phones/iphone-16-pro.png", year: 2024, colors: ["Black Titanium","White Titanium","Natural Titanium","Desert Titanium"], specs: '6.3" OLED · 128GB · 5G · Used' },
+  { id: 23, name: "iPhone 16 Plus", brand: "Apple", cat: "phone", price: 523, img: "images/phones/iphone-16-plus.png", year: 2024, colors: ["Black","White","Pink","Teal","Ultramarine"], specs: '6.7" OLED · 128GB · 5G · Used' },
+  { id: 24, name: "iPhone 16e", brand: "Apple", cat: "phone", price: 420, img: "images/phones/iphone-16e.png", year: 2025, colors: ["Black","White"], specs: '6.1" OLED · 128GB · 5G · Used' },
+  { id: 25, name: "iPhone 15 Pro Max", brand: "Apple", cat: "phone", price: 558, img: "images/phones/iphone-15-pro-max.png", year: 2023, colors: ["Black Titanium","White Titanium","Blue Titanium","Natural Titanium"], specs: '6.7" OLED · 256GB · 5G · Used' },
+  { id: 26, name: "iPhone 15 Pro", brand: "Apple", cat: "phone", price: 480, img: "images/phones/iphone-15-pro.png", year: 2023, colors: ["Black Titanium","White Titanium","Blue Titanium","Natural Titanium"], specs: '6.1" OLED · 128GB · 5G · Used' },
+  { id: 27, name: "iPhone 15 Plus", brand: "Apple", cat: "phone", price: 385, img: "images/phones/iphone-15-plus.png", year: 2023, colors: ["Black","Blue","Green","Yellow","Pink"], specs: '6.7" OLED · 128GB · 5G · Used' },
+  { id: 28, name: "iPhone 15", brand: "Apple", cat: "phone", price: 350, img: "images/phones/iphone-15.png", year: 2023, colors: ["Black","Blue","Green","Yellow","Pink"], specs: '6.1" OLED · 128GB · 5G · Used' },
+  { id: 29, name: "iPhone 14 Pro Max", brand: "Apple", cat: "phone", price: 430, img: "images/phones/iphone-14-pro-max.png", year: 2022, colors: ["Silver","Gold","Space Black","Deep Purple"], specs: '6.7" OLED · 128GB · 5G · Used' },
+  { id: 30, name: "iPhone 14 Pro", brand: "Apple", cat: "phone", price: 368, img: "images/phones/iphone-14-pro.png", year: 2022, colors: ["Silver","Gold","Space Black","Deep Purple"], specs: '6.1" OLED · 128GB · 5G · Used' },
+  { id: 31, name: "iPhone 14 Plus", brand: "Apple", cat: "phone", price: 287, img: "images/phones/iphone-14-plus.png", year: 2022, colors: ["Midnight","Starlight","(PRODUCT)RED","Blue","Purple","Yellow"], specs: '6.7" OLED · 128GB · 5G · Used' },
+  { id: 32, name: "iPhone 14", brand: "Apple", cat: "phone", price: 252, img: "images/phones/iphone-14.png", year: 2022, colors: ["Midnight","Starlight","(PRODUCT)RED","Blue","Purple","Yellow"], specs: '6.1" OLED · 128GB · 5G · Used' },
+  { id: 33, name: "iPhone SE (3rd generation)", brand: "Apple", cat: "phone", price: 119, img: "images/phones/iphone-se-3rd-gen.png", year: 2022, colors: ["(PRODUCT)RED","Starlight","Midnight"], specs: '4.7" LCD · 64GB · 5G · Used' },
+  { id: 34, name: "iPhone 13 Pro Max", brand: "Apple", cat: "phone", price: 365, img: "images/phones/iphone-13-pro-max.png", year: 2021, colors: ["Graphite","Gold","Silver","Sierra Blue","Alpine Green"], specs: '6.7" OLED · 128GB · 5G · Used' },
+  { id: 35, name: "iPhone 13 Pro", brand: "Apple", cat: "phone", price: 310, img: "images/phones/iphone-13-pro.png", year: 2021, colors: ["Graphite","Gold","Silver","Sierra Blue","Alpine Green"], specs: '6.1" OLED · 128GB · 5G · Used' },
+  { id: 36, name: "iPhone 13", brand: "Apple", cat: "phone", price: 218, img: "images/phones/iphone-13.png", year: 2021, colors: ["(PRODUCT)RED","Starlight","Midnight","Blue","Pink","Green"], specs: '6.1" OLED · 128GB · 5G · Used' },
+  { id: 37, name: "iPhone 13 mini", brand: "Apple", cat: "phone", price: 220, img: "images/phones/iphone-13-mini.png", year: 2021, colors: ["(PRODUCT)RED","Starlight","Midnight","Blue","Pink","Green"], specs: '5.4" OLED · 128GB · 5G · Used' },
+  { id: 38, name: "iPhone 12 Pro Max", brand: "Apple", cat: "phone", price: 277, img: "images/phones/iphone-12-pro-max.jpg", year: 2020, colors: ["Silver","Graphite","Gold","Pacific Blue"], specs: '6.7" OLED · 128GB · 5G · Used' },
+  { id: 39, name: "iPhone 12 Pro", brand: "Apple", cat: "phone", price: 211, img: "images/phones/iphone-12-pro.jpg", year: 2020, colors: ["Silver","Graphite","Gold","Pacific Blue"], specs: '6.1" OLED · 128GB · 5G · Used' },
+  { id: 40, name: "iPhone 12", brand: "Apple", cat: "phone", price: 149, img: "images/phones/iphone-12.png", year: 2020, colors: ["Black","White","(PRODUCT)RED","Green","Blue","Purple"], specs: '6.1" OLED · 64GB · 5G · Used' },
+  { id: 41, name: "iPhone 12 mini", brand: "Apple", cat: "phone", price: 134, img: "images/phones/iphone-12-mini.png", year: 2020, colors: ["Black","White","(PRODUCT)RED","Green","Blue","Purple"], specs: '5.4" OLED · 64GB · 5G · Used' },
+  { id: 42, name: "iPhone SE (2nd generation)", brand: "Apple", cat: "phone", price: 84, img: "images/phones/iphone-se-2nd-gen.jpg", year: 2020, colors: ["White","Black","(PRODUCT)RED"], specs: '4.7" LCD · 64GB · 4G · Used' },
+  { id: 43, name: "iPhone 11 Pro Max", brand: "Apple", cat: "phone", price: 202, img: "images/phones/iphone-11-pro-max.jpg", year: 2019, colors: ["Silver","Space Gray","Gold","Midnight Green"], specs: '6.5" OLED · 64GB · 4G · Used' },
+  { id: 44, name: "iPhone 11 Pro", brand: "Apple", cat: "phone", price: 163, img: "images/phones/iphone-11-pro.jpg", year: 2019, colors: ["Silver","Space Gray","Gold","Midnight Green"], specs: '5.8" OLED · 64GB · 4G · Used' },
+  { id: 45, name: "iPhone 11", brand: "Apple", cat: "phone", price: 126, img: "images/phones/iphone-11.jpg", year: 2019, colors: ["Purple","Green","Yellow","Black","White","(PRODUCT)RED"], specs: '6.1" LCD · 64GB · 4G · Used' },
+  { id: 46, name: "iPhone XS Max", brand: "Apple", cat: "phone", price: 131, img: "images/phones/iphone-xs-max.jpg", year: 2018, colors: ["Silver","Space Gray","Gold"], specs: '6.5" OLED · 64GB · 4G · Used' },
+  { id: 47, name: "iPhone XS", brand: "Apple", cat: "phone", price: 103, img: "images/phones/iphone-xs.jpg", year: 2018, colors: ["Silver","Space Gray","Gold"], specs: '5.8" OLED · 64GB · 4G · Used' },
+  { id: 48, name: "iPhone XR", brand: "Apple", cat: "phone", price: 104, img: "images/phones/iphone-xr.jpg", year: 2018, colors: ["Black","White","Blue","Yellow","Coral","(PRODUCT)RED"], specs: '6.1" LCD · 64GB · 4G · Used' },
+  { id: 49, name: "iPhone X", brand: "Apple", cat: "phone", price: 98, img: "images/phones/iphone-x.jpg", year: 2017, colors: ["Silver","Space Gray"], specs: '5.8" OLED · 64GB · 4G · Used' },
   // Samsung line-up. Prices = Samsung US online store (unlocked, base storage), Nov 2026; `old` = Samsung list price.
   { id: 2, name: "Galaxy S26 Ultra", brand: "Samsung", cat: "phone", price: 1149, old: 1399, img: "images/samsung/galaxy-s26-ultra.png", specs: '6.9" AMOLED · 256GB · 5G · S Pen', badge: "Sale" },
   { id: 3, name: "Galaxy S26+", brand: "Samsung", cat: "phone", price: 999, img: "images/samsung/galaxy-s26-plus.png", specs: '6.7" AMOLED · 256GB · 5G' },
@@ -142,9 +143,9 @@ function deviceArt(p) {
 function productCard(p, i = 0) {
   return `<article class="card reveal" style="--d:${(i % 4) * 80}ms">
     ${p.badge ? `<span class="badge">${p.badge}</span>` : ""}
-    <div class="card-art">${deviceArt(p)}</div>
+    <a class="card-art" href="product.html?id=${p.id}">${deviceArt(p)}</a>
     <p class="card-brand">${p.brand}</p>
-    <h3>${p.name}</h3>
+    <h3><a href="product.html?id=${p.id}">${p.name}</a></h3>
     <p class="card-specs">${p.specs}</p>
     <div class="card-foot">
       <div class="price">${SHOP.currency}${p.price}${p.old ? `<s>${SHOP.currency}${p.old}</s>` : ""}</div>
