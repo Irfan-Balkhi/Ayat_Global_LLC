@@ -6,7 +6,7 @@ const SHOP = {
   whatsapp: "+971564718036",            // PLACEHOLDER: country code + number, no + or spaces
   email: "info@yourdomain.com",       // PLACEHOLDER
   phone: "+971 55 725 0280",         // PLACEHOLDER
-  // currency: "$",
+  currency: "$",
   // OUR store: shown in the footer and on the Contact page.
   // Leave a field "" to hide it. Hours are in the store's local time.
   store: {
