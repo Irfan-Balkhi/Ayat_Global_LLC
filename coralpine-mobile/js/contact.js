@@ -9,9 +9,9 @@ document.getElementById("stores-note").innerHTML = storesNote();
 document.getElementById("store-list").innerHTML = storeCards();
 observe();
 
-document.getElementById("form").onsubmit = e => {
+document.getElementById("form").onsubmit = (e) => {
   e.preventDefault();
   const f = new FormData(e.target);
-  location.href = `mailto:${SHOP.email}?subject=${encodeURIComponent("Message from "+f.get("name"))}&body=${encodeURIComponent(f.get("message")+"\n\nPhone: "+f.get("phone"))}`;
+  location.href = `mailto:${SHOP.email}?subject=${encodeURIComponent("Message from " + f.get("name"))}&body=${encodeURIComponent(f.get("message") + "\n\nPhone: " + f.get("phone"))}`;
   toast("Opening your email app…");
 };

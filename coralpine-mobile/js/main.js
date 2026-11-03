@@ -11,7 +11,7 @@ const links = [
 ];
 $("#site-header").innerHTML = `
   <div class="wrap nav">
-    <a class="brand" href="index.html"><img src="images/logo.svg" alt="">${SHOP.name}</a>
+    <a class="brand" href="index.html"><img src="images/logo.png" alt="">${SHOP.name}</a>
     <nav id="menu">${links.map((l) => `<a href="${l[0]}" class="${page === l[2] ? "active" : ""}">${l[1]}</a>`).join("")}</nav>
     <div class="nav-actions">
       <button class="icon-btn theme-toggle" id="theme" aria-label="Switch dark / light mode" title="Dark / light mode"><svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8"/></svg><svg class="moon" viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 14.5A8.5 8.5 0 0 1 9.5 3.5a8.5 8.5 0 1 0 11 11z"/></svg></button>
@@ -21,10 +21,14 @@ $("#site-header").innerHTML = `
   </div>`;
 $("#site-footer").innerHTML = `
   <div class="wrap foot-grid">
-    <div><a class="brand" href="index.html"><img src="images/logo.svg" alt="">${SHOP.name}</a><p>${SHOP.tagline}</p></div>
+    <div><a class="brand" href="index.html"><img src="images/logo.png" alt="">${SHOP.name}</a><p>${SHOP.tagline}</p></div>
     <div><h4>Pages</h4>${links.map((l) => `<a href="${l[0]}">${l[1]}</a>`).join("")}</div>
     <div><h4>Visit us</h4><p>${SHOP.store.address}${SHOP.store.hours ? `<br>${SHOP.store.hours}` : ""}</p></div>
-    <div><h4>Contact</h4><a href="tel:${SHOP.phone.replace(/\s/g, "")}">${SHOP.phone}</a><a href="mailto:${SHOP.email}">${SHOP.email}</a></div>
+    <div><h4>Contact</h4>
+      <a href="tel:${SHOP.phone.replace(/\s/g, "")}">${SHOP.phone}</a>
+      <a href="tel:${SHOP.whatsapp.replace(/\s/g, "")}">${SHOP.whatsapp}</a>
+      <a href="mailto:${SHOP.email}">${SHOP.email}</a>
+    </div>
   </div>
   <div class="copy">© ${new Date().getFullYear()} ${SHOP.name}. All rights reserved.
     <div class="dev-credit">Designed and developed by
@@ -118,7 +122,10 @@ const Cart = {
         `\n\n📍 RECEIVE IN: ${this.location.toUpperCase()}`,
     );
     const locs = SHOP.locations
-      .map((l) => `<button class="chip ${this.location === l ? "active" : ""}" data-loc="${l}">${l}</button>`)
+      .map(
+        (l) =>
+          `<button class="chip ${this.location === l ? "active" : ""}" data-loc="${l}">${l}</button>`,
+      )
       .join("");
     $("#cart-root").innerHTML =
       `<div class="overlay" id="overlay"></div><aside class="drawer" id="drawer">
@@ -162,7 +169,8 @@ Cart.render();
 
 /* ---------- Store cards: our store + partner store (edit both in config.js) ---------- */
 // Used on Contact (full) and Home (compact = no address/phone; links to contact.html#stores).
-const mapUrl = (a) => `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(a)}`;
+const mapUrl = (a) =>
+  `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(a)}`;
 function storeCard(s, title, tag, i, compact) {
   return `
   <div class="panel store-card reveal ${s === SHOP.partner ? "is-partner" : ""} ${compact ? "is-compact" : ""}" style="--d:${i * 120}ms">

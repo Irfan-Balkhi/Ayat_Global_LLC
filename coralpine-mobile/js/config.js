@@ -3,33 +3,33 @@
 const SHOP = {
   name: "Ayat Global Tech LLC",
   tagline: "Find the phone that fits you.",
-  whatsapp: "10000000000",            // PLACEHOLDER: country code + number, no + or spaces
+  whatsapp: "+971564718036",            // PLACEHOLDER: country code + number, no + or spaces
   email: "info@yourdomain.com",       // PLACEHOLDER
-  phone: "+1 (000) 000-0000",         // PLACEHOLDER
-  currency: "$",
+  phone: "+971 55 725 0280",         // PLACEHOLDER
+  // currency: "$",
   // OUR store: shown in the footer and on the Contact page.
   // Leave a field "" to hide it. Hours are in the store's local time.
   store: {
     flag: "🇺🇸",
     city: "Austin, USA",
-    address: "Street address, Austin, TX 00000",   // PLACEHOLDER
-    phone: "+1 (000) 000-0000",                    // PLACEHOLDER
+    address: "AYAT GLOBAL TECH LLC 5900 BALCONES DR STE 100 AUSTIN TX 78731-4298",   // usa address
+    phone: "+971564718036",                    // +971564718036
     hours: "Mon – Sat: 10:00 – 22:00"              // PLACEHOLDER
   },
   // PARTNER store (a separate business with its own name and logo).
   // Shown on the Contact page (full details) and on the Home page ("Visit us", short version).
   partner: {
-    name: "Partner Store Name",                    // PLACEHOLDER
+    name: "SH mobile",                    // SH mobile
     logo: "",                                      // PLACEHOLDER: e.g. "images/partner-logo.png" ("" = show flag)
     flag: "🇦🇪",
     city: "Dubai, UAE",
-    address: "Street address, Dubai, UAE",         // PLACEHOLDER
-    phone: "+971 00 000 0000",                     // PLACEHOLDER
+    address: "Deira Frij al Murar shop no 14 dubai UAE",         // store address
+    phone: "+971 55 725 0280",                     // PLACEHOLDER
     hours: "Mon – Sat: 10:00 – 22:00",             // PLACEHOLDER
-    website: ""                                    // optional: partner's website link
+    // website: ""                                    // optional: partner's website link
   },
   // Where the customer can receive the order (shown in the cart; must pick one)
-  locations: ["Dubai, UAE", "USA"],
+  locations: ["UAE", "USA"],
   // Website developer credit (shown at the bottom of every page)
   developer: {
     company: "Paiman ICT",
