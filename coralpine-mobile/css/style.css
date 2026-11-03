@@ -119,6 +119,7 @@ section{padding:90px 0;position:relative}
 .card-brand{color:var(--b);font-size:12px;letter-spacing:1.5px;text-transform:uppercase;font-weight:700}
 .card h3{font-size:18px}.card-specs{color:var(--muted);font-size:13px;min-height:40px}
 .card-foot{display:flex;justify-content:space-between;align-items:center;margin-top:10px}
+.card-view{display:block;text-align:center;margin-top:12px}
 .price{font-size:22px;font-weight:800}.price s{color:var(--muted);font-size:14px;font-weight:400;margin-left:8px}
 .badge{position:absolute;top:14px;left:14px;z-index:2;background:var(--a);color:#1f3533;font-size:12px;font-weight:700;padding:3px 12px;border-radius:20px}
 
