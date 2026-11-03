@@ -10,4 +10,8 @@ function find(){
   out.querySelectorAll(".reveal").forEach(el => el.classList.add("in"));
 }
 range.oninput = find; kind.onchange = find; find();
+
+// "Visit us" teaser: compact store cards; full details live on contact.html#stores
+document.getElementById("home-stores-note").innerHTML = storesNote();
+document.getElementById("home-store-list").innerHTML = storeCards(true);
 observe();
