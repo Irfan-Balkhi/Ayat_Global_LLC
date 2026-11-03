@@ -150,5 +150,6 @@ function productCard(p, i = 0) {
     <div class="card-foot">
       <div class="price">${SHOP.currency}${p.price}${p.old ? `<s>${SHOP.currency}${p.old}</s>` : ""}</div>
       <button class="btn btn-sm" data-add="${p.id}">Add</button>
-    </div></article>`;
+    </div>
+    <a class="btn btn-sm btn-ghost card-view" href="product.html?id=${p.id}">View details</a></article>`;
 }
