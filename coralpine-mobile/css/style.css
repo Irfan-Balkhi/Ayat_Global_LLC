@@ -181,6 +181,20 @@ input[type=range]{width:100%;accent-color:var(--b);height:6px}
 .info-card{display:flex;gap:16px;align-items:center;margin-bottom:20px}
 .info-card span{font-size:26px;background:var(--bg2);width:52px;height:52px;border-radius:14px;display:grid;place-items:center}
 .info-card p{color:var(--muted)}
+.info-card p a{color:inherit}.info-card small{font-size:12px;opacity:.8}
+.stores-sub{color:var(--muted);margin-top:8px}
+.stores-grid{display:grid;grid-template-columns:1fr 1fr;gap:30px}
+.stores-sub{max-width:640px}
+.store-card{position:relative}
+.store-tag{position:absolute;top:18px;right:18px;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;font-weight:700;padding:5px 12px;border-radius:30px;background:var(--btn);color:var(--btn-text)}
+.store-card.is-partner .store-tag{background:transparent;color:var(--text);border:1.5px solid var(--line)}
+.store-card h3{display:flex;align-items:center;gap:14px;margin-bottom:20px;padding-right:110px}
+.store-card h3 small{display:block;font-size:13px;font-weight:600;color:var(--muted);margin-top:2px}
+.store-flag{font-size:30px;line-height:1}
+.store-logo{width:52px;height:52px;object-fit:contain;border-radius:12px;background:#fff;padding:4px}
+.store-btns{display:flex;gap:12px;flex-wrap:wrap}.store-btns .btn{flex:1;text-align:center}
+#stores{scroll-margin-top:90px}
+@media(max-width:760px){.stores-grid{grid-template-columns:1fr}}
 
 /* ===== 12. Cart drawer & toast ===== */
 .overlay{position:fixed;inset:0;background:rgba(0,0,0,.55);opacity:0;pointer-events:none;transition:.3s;z-index:90}

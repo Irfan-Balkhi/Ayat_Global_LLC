@@ -23,7 +23,7 @@ $("#site-footer").innerHTML = `
   <div class="wrap foot-grid">
     <div><a class="brand" href="index.html"><img src="images/logo.svg" alt="">${SHOP.name}</a><p>${SHOP.tagline}</p></div>
     <div><h4>Pages</h4>${links.map((l) => `<a href="${l[0]}">${l[1]}</a>`).join("")}</div>
-    <div><h4>Visit us</h4><p>${SHOP.address}<br>${SHOP.hours}</p></div>
+    <div><h4>Visit us</h4><p>${SHOP.store.address}${SHOP.store.hours ? `<br>${SHOP.store.hours}` : ""}</p></div>
     <div><h4>Contact</h4><a href="tel:${SHOP.phone.replace(/\s/g, "")}">${SHOP.phone}</a><a href="mailto:${SHOP.email}">${SHOP.email}</a></div>
   </div>
   <div class="copy">© ${new Date().getFullYear()} ${SHOP.name}. All rights reserved.</div>
