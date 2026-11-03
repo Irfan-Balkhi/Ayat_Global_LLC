@@ -160,6 +160,29 @@ function toast(m) {
 }
 Cart.render();
 
+/* ---------- Store cards: our store + partner store (edit both in config.js) ---------- */
+// Used on Contact (full) and Home (compact = no address/phone; links to contact.html#stores).
+const mapUrl = (a) => `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(a)}`;
+function storeCard(s, title, tag, i, compact) {
+  return `
+  <div class="panel store-card reveal ${s === SHOP.partner ? "is-partner" : ""} ${compact ? "is-compact" : ""}" style="--d:${i * 120}ms">
+    <span class="store-tag">${tag}</span>
+    <h3>${s.logo ? `<img class="store-logo" src="${s.logo}" alt="${s.name} logo">` : `<span class="store-flag">${s.flag}</span>`}<span>${title}<small>${s.city}</small></span></h3>
+    ${s.address && !compact ? `<div class="info-card"><span>📍</span><div><b>Address</b><p>${s.address}</p></div></div>` : ""}
+    ${s.hours ? `<div class="info-card"><span>🕒</span><div><b>Opening hours</b><p>${s.hours} <small>(local time)</small></p></div></div>` : ""}
+    ${s.phone && !compact ? `<div class="info-card"><span>📞</span><div><b>Phone</b><p><a href="tel:${s.phone.replace(/\s/g, "")}">${s.phone}</a></p></div></div>` : ""}
+    <div class="store-btns">
+      ${s.address ? `<a class="btn btn-ghost" target="_blank" rel="noopener" href="${mapUrl(s.address)}">Get directions</a>` : ""}
+      ${s.website && !compact ? `<a class="btn btn-ghost" target="_blank" rel="noopener" href="${s.website}">Visit website</a>` : ""}
+    </div>
+  </div>`;
+}
+const storeCards = (compact) =>
+  storeCard(SHOP.store, SHOP.name, "Our store", 0, compact) +
+  storeCard(SHOP.partner, SHOP.partner.name, "Partner store", 1, compact);
+const storesNote = () =>
+  `Our own store is in ${SHOP.store.city}. In ${SHOP.partner.city}, our products are also available at <b>${SHOP.partner.name}</b>, an independent partner store with its own name and branding.`;
+
 /* ---------- Scroll animations & counters ---------- */
 function observe() {
   const io = new IntersectionObserver(
