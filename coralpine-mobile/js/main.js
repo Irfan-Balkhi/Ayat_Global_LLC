@@ -26,10 +26,35 @@ $("#site-footer").innerHTML = `
     <div><h4>Visit us</h4><p>${SHOP.store.address}${SHOP.store.hours ? `<br>${SHOP.store.hours}` : ""}</p></div>
     <div><h4>Contact</h4><a href="tel:${SHOP.phone.replace(/\s/g, "")}">${SHOP.phone}</a><a href="mailto:${SHOP.email}">${SHOP.email}</a></div>
   </div>
-  <div class="copy">© ${new Date().getFullYear()} ${SHOP.name}. All rights reserved.</div>
-  
+  <div class="copy">© ${new Date().getFullYear()} ${SHOP.name}. All rights reserved.
+    <div class="dev-credit">Designed and developed by
+      <span class="dev-pop">
+        <a class="dev-name" href="${SHOP.developer.website}" target="_blank" rel="noopener" aria-describedby="dev-card">${SHOP.developer.company}</a>
+        <span class="dev-card" id="dev-card" role="tooltip">
+          <span class="dev-head"><img src="${SHOP.developer.logo}" alt="" loading="lazy"><span><b>${SHOP.developer.company}</b><small>${SHOP.developer.about}</small></span></span>
+          <a href="${SHOP.developer.website}" target="_blank" rel="noopener">🌐 ${SHOP.developer.websiteLabel}</a>
+          <a href="mailto:${SHOP.developer.email}">✉️ ${SHOP.developer.email}</a>
+          <a href="https://wa.me/${SHOP.developer.whatsapp}" target="_blank" rel="noopener">💬 WhatsApp ${SHOP.developer.whatsappLabel}</a>
+          <span class="dev-loc">📍 ${SHOP.developer.location}</span>
+          <a class="dev-btn" href="${SHOP.developer.website}" target="_blank" rel="noopener">Visit website →</a>
+        </span>
+      </span>
+    </div>
+  </div>
   <div id="cart-root"></div><div id="toast"></div>`;
 document.title = document.title.replace("{shop}", SHOP.name);
+
+/* ---------- Developer card: on touch screens, first tap opens the card ---------- */
+$(".dev-name").addEventListener("click", (e) => {
+  const pop = $(".dev-pop");
+  if (matchMedia("(hover: none)").matches && !pop.classList.contains("open")) {
+    e.preventDefault();
+    pop.classList.add("open");
+  }
+});
+document.addEventListener("click", (e) => {
+  if (!e.target.closest(".dev-pop")) $(".dev-pop").classList.remove("open");
+});
 
 /* ---------- Header behaviour ---------- */
 $("#burger").onclick = () => $("#menu").classList.toggle("open");
