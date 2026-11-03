@@ -17,7 +17,7 @@ const SHOP = {
     hours: "Mon – Sat: 10:00 – 22:00"              // PLACEHOLDER
   },
   // PARTNER store (a separate business with its own name and logo).
-  // Shown ONLY on the Contact page, in the "Our store & partner store" section.
+  // Shown on the Contact page (full details) and on the Home page ("Visit us", short version).
   partner: {
     name: "Partner Store Name",                    // PLACEHOLDER
     logo: "",                                      // PLACEHOLDER: e.g. "images/partner-logo.png" ("" = show flag)
