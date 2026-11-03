@@ -29,5 +29,17 @@ const SHOP = {
     website: ""                                    // optional: partner's website link
   },
   // Where the customer can receive the order (shown in the cart; must pick one)
-  locations: ["Dubai, UAE", "USA"]
+  locations: ["Dubai, UAE", "USA"],
+  // Website developer credit (shown at the bottom of every page)
+  developer: {
+    company: "Paiman ICT",
+    about: "ICT solutions: software, AI & cloud",
+    logo: "images/paiman-ict-logo.png",
+    location: "Mazar-e-Sharif, Afghanistan",
+    website: "https://www.paimanict.com/",
+    websiteLabel: "paimanict.com",
+    email: "contact@paimanict.com",
+    whatsapp: "93729120009",          // country code + number, no + or spaces
+    whatsappLabel: "+93 72 912 0009"
+  }
 };
